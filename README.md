@@ -1,8 +1,11 @@
-# Wave APP  - Web 3.0 
+# Wave APP  - Web 3.0
 
 ## Description
 Put description here.
 
-## Technologies 
+## Technologies
 * ReactJs
+* Express
+* Prettier
+* Eslint
  
