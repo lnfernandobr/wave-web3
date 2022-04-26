@@ -6,6 +6,7 @@
   "scripts": {
     "start:client": "yarn workspace @wave-web3/client run start",
     "start:server": "yarn workspace @wave-web3/server run start",
+    "start:app:builded": "yarn workspace @wave-web3/client run build && yarn start:server",
     "prettier": "prettier --write ./packages/**/*.js"
   },
   "workspaces": {
