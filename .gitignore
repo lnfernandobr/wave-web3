@@ -1,2 +1,5 @@
 # IDE settings file.
 .idea
+
+# Packages
+node_modules

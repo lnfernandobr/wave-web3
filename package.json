@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start:client": "yarn workspace @wave-web3/client run start",
+    "prettier": "prettier --write ./packages/**/*.js"
+  },
   "workspaces": {
     "packages": [
       "packages/*"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^2.6.1"
   }
 }
