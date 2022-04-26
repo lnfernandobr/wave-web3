@@ -5,4 +5,7 @@ Put description here.
 
 ## Technologies 
 * ReactJs
+* Express 
+* Prettier 
+* Eslint
  
