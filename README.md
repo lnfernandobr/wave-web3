@@ -15,4 +15,8 @@ In case you have any curiosity about it, you can access the: https://fakelink.co
 * Prettier
 * Eslint
 * Monorepo
+* Tailwind CSS 
+* React Router Dom
+* Hardhat
+* Ethereum
  
