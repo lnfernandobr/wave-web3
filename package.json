@@ -7,6 +7,10 @@
     "start:client": "yarn workspace @wave-web3/client run start",
     "start:server": "yarn workspace @wave-web3/server run start",
     "start:app:builded": "yarn workspace @wave-web3/client run build && yarn start:server",
+    "start:local:network": "cd packages/web3 && npx hardhat node",
+    "run:deploy:to:test": "cd packages/web3 && npx hardhat run scripts/run.js",
+    "run:deploy:to:local": "cd packages/web3 && npx hardhat run scripts/deploy.js --network localhost",
+    "run:deploy:to:rinkeby": "cd packages/web3 && npx hardhat run scripts/deploy.js --network rinkeby",
     "prettier": "prettier --write ./packages/**/*.js"
   },
   "workspaces": {
