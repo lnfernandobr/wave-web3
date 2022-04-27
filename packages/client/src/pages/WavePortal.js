@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { NewWave } from "../components/NewWave";
 import { Button } from "../components/Button";
 import { Waves } from "../components/Waves";
+import { ethers } from "ethers";
+import { contractWavePortalABI } from "../contracts/WavePortal";
 
 const METAMASK_METHODS = {
   GET_ACCOUNTS: "eth_accounts",
@@ -11,6 +13,7 @@ const METAMASK_METHODS = {
 export const WavePortal = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [account, setAcccount] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const waves = [
     {
@@ -25,8 +28,31 @@ export const WavePortal = () => {
     },
   ];
 
-  const newWave = ({ message }) => {
-    console.log(message);
+  const newWave = async ({ message }) => {
+    try {
+      setIsLoading(true);
+
+      const { ethereum } = window;
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const wavePortalContract = new ethers.Contract(
+        contractWavePortalABI.jsonInterface,
+        contractWavePortalABI.getABI(),
+        signer
+      );
+
+      const waveTranscation = await wavePortalContract.wave(message, {
+        gasLimit: 300000,
+      });
+
+      console.info("Mining transcation...", waveTranscation.hash);
+      await waveTranscation.wait();
+      console.info("Mined transaction -- ", waveTranscation.hash);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const requestWallet = async () => {
@@ -68,6 +94,10 @@ export const WavePortal = () => {
   useEffect(() => {
     connectWallet().catch((error) => console.error(error));
   });
+
+  if (isLoading) {
+    return <div>loading</div>;
+  }
 
   return (
     <div className="container mx-auto">
