@@ -1,4 +1,5 @@
 import React from "react";
+import { format } from "date-fns";
 
 export const Waves = ({ waves }) => {
   return (
@@ -10,7 +11,7 @@ export const Waves = ({ waves }) => {
         >
           {waves.map((wave) => {
             return (
-              <li className="py-3 sm:py-4" key={wave.address}>
+              <li className="py-3 sm:py-4" key={wave.timestamp}>
                 <div className="flex items-center space-x-4">
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -21,7 +22,7 @@ export const Waves = ({ waves }) => {
                     </p>
                   </div>
                   <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    {wave.timestamp}
+                    {format(wave.timestamp, "mm/dd/yyyy")}
                   </div>
                 </div>
               </li>
