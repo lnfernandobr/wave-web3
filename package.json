@@ -4,6 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "build": "yarn workspace @wave-web3/client run build",
+    "start": "yarn workspace @wave-web3/server run start",
     "start:client": "yarn workspace @wave-web3/client run start",
     "start:server": "yarn workspace @wave-web3/server run start",
     "start:app:builded": "yarn workspace @wave-web3/client run build && yarn start:server",

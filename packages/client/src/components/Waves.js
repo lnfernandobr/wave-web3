@@ -22,7 +22,7 @@ export const Waves = ({ waves }) => {
                     </p>
                   </div>
                   <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    {format(wave.timestamp, "mm/dd/yyyy")}
+                    {format(wave.timestamp, "MM/dd/yyyy")}
                   </div>
                 </div>
               </li>
